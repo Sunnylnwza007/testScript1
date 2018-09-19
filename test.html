@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">
+    <section class="hero is-primary is-medium">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">
+              Register
+            </h1>
+            <h2 class="subtitle">
+              test version for fun
+            </h2>
+          </div>
+        </div>
+      </section>
+</head>
+<body>
+    <div class="section">
+            <div class="container">
+                            <div class="column">
+                                <p>Name</p>
+                                <input class="input" type="text" placeholder="Text input">
+                            </div>
+                            <div class="column">
+                                    <p>Surname</p>
+                                    <input class="input" type="text" placeholder="Text input">
+                                </div>
+                            <div class="column">
+                                <p>E-maiil</p>
+                                    <div class="control has-icons-left has-icons-right">
+                                            <input id="email" class="input" type="email" placeholder="Email">
+                                            <span class="icon is-small is-left">
+                                              <i class="fas fa-envelope"></i>
+                                            </span>
+                                            <span class="icon is-small is-right">
+                                              <i class="fas fa-check"></i>
+                                            </span>
+                                          </div>
+                            </div>
+                            <div class="column">
+                                <p>Tel.</p>
+                                    <input class="input" type="text" placeholder="Text input">
+                            </div>
+                            <div class="column">
+                                <p>Sex</p>
+                                    <div class="select">
+                                            <select>
+                                              <option>Male</option>
+                                              <option>Female</option>
+                                            </select>
+                                          </div>
+                            </div>
+                            <div class="column">
+                                <p>Username</p>
+                                    <div class="control has-icons-left has-icons-right">
+                                            <input class="input" type="user" placeholder="User">
+                                            <span class="icon is-small is-left">
+                                              <i class="fas fa-envelope"></i>
+                                            </span>
+                                            <span class="icon is-small is-right">
+                                              <i class="fas fa-check"></i>
+                                            </span>
+                                          </div>
+                            </div>
+                            <div class="column">
+                                <p>Password</p>
+                                    <div class="field">
+                                            <p class="control has-icons-left">
+                                              <input id="button1" class="input" type="password" placeholder="Password">
+                                              <span class="icon is-small is-left">
+                                                    <span class="icon is-small is-right">       
+                                              </span>
+                                            </p>
+                                          </div>
+                            </div>
+                            <div class="column">
+                                <p>Re-Password</p>
+                                    <div class="field">
+                                            <p class="control has-icons-left">
+                                              <input id="button2" class="input" type="password" placeholder="Password">
+                                              </span>
+                                            </p>
+                                            
+                                            <div ><p style="color:red;" class="help is-danger" id="output"></p>
+                                            </div>
+                                          </div>
+                                          
+                            </div>
+                            <div class="column">
+                                <a id="click" > <button class="button is-link" onclick="checkPass()" >Button</button>
+                                </a>
+                            </div>
+            </div>
+    </div>
+
+    <script>
+        
+        function checkPass(){
+            var b11 = document.getElementById("button1");
+            var b22 = document.getElementById("button2");
+            var em = document.getElementById("email");
+            var n = em.value.includes(".com", 0);
+            if (n){
+                document.getElementById("email").classList.remove("is-danger");
+            }else{
+                document.getElementById("email").classList.add("is-danger");
+            }
+            if (b11.value!=b22.value){
+                document.getElementById("button2").classList.add("is-danger");
+               
+                document.getElementById("output").innerHTML = "This password is not the same";
+            }else{
+                document.getElementById("button2").classList.remove("is-danger");
+                document.getElementById("output").innerHTML = "";
+            }
+
+            if (n && b11.value == b22.value){
+                var a =document.getElementById("click");
+                a.setAttribute("href","https://www.youtube.com/watch?v=SC4xMk98Pdc");
+            }
+        }
+    </script>
+    <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>test version</strong> by <a>Sunnylnwza007</a>
+              </p>
+            </div>
+          </footer>
+</body>
+</html>
