@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">
+    <section class="hero is-primary is-medium">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">
+              Register V.2
+            </h1>
+            <h2 class="subtitle">
+              test version 2 for fun
+            </h2>
+          </div>
+        </div>
+      </section>
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+                <p>Name</p>
+                <input class="input" type="text" placeholder="Name" id="name">
+                <p class="help is-danger" id="showN"></p>
+            </div>
+            <div class="column">
+                <p>Suname</p>
+                <input class="input" type="text" placeholder="Surname" id="surname">
+                <p class="help is-danger" id="showS"></p>
+            </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="Email input" id="email">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </span>
+                </div>
+                <p class="help is-danger" id="showE"></p>
+              </div>
+
+              <div class="field">
+                  <label class="label">Username</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Text input" id="user">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </div>
+                  <p class="help is-danger" id="showU"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Password</label>
+                    <p class="control has-icons-left">
+                      <input class="input" type="password" placeholder="Password" id="pass1">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                    </p>
+                    
+                  </div>
+
+                  <div class="field">
+                      <label class="label">Password2</label>
+                      <p class="control has-icons-left">
+                        <input class="input" type="password" placeholder="Password" id="pass2">
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-lock"></i>
+                        </span>
+                      </p>
+                      <p class="help is-danger" id="showP2"></p>
+                    </div>
+                    
+                        <div class="container">
+                            <a class="button is-link is-large" onclick="check()" id="click">Enter</a>
+                          </div>
+                       
+      </div>
+    </div>
+    <script>
+        function check(){
+          var count = 0;
+          var name1 = document.getElementById("name").value;
+          var surname1 = document.getElementById("surname").value;
+          var email1 = document.getElementById("email").value;
+          var checkmail = email1.includes(".com",0);
+          var user1 = document.getElementById("user").value;
+          var pass11 = document.getElementById("pass1").value;
+          var pass22 = document.getElementById("pass2").value;
+
+          if (name1 == ""){
+            document.getElementById("name").classList.add("is-danger")
+            document.getElementById("showN").innerHTML = "is empty";
+          }else if(name1 != ""){
+            document.getElementById("name").classList.remove("is-danger")
+            document.getElementById("showN").innerHTML = "";
+            count++;
+          }
+
+          if (surname1 == ""){
+            document.getElementById("surname").classList.add("is-danger")
+            document.getElementById("showS").innerHTML = "is empty";
+          }else if(surname1 != ""){
+            count++;
+            document.getElementById("surname").classList.remove("is-danger")
+            document.getElementById("showS").innerHTML = "";
+          }
+
+          if (email1 == ""){
+            document.getElementById("email").classList.add("is-danger")
+            document.getElementById("showE").innerHTML = "is empty";
+          }else if(!checkmail){
+            document.getElementById("email").classList.add("is-danger")
+            document.getElementById("showE").innerHTML = "Wrong ";
+          }else{
+            count++;
+            document.getElementById("email").classList.remove("is-danger")
+            document.getElementById("showE").innerHTML = "";
+          }
+
+          if (user1 == ""){
+            document.getElementById("user").classList.add("is-danger")
+            document.getElementById("showU").innerHTML = "is empty";
+          }else if(user1 != ""){
+            count++;
+            document.getElementById("user").classList.remove("is-danger")
+            document.getElementById("showU").innerHTML = "";
+          }
+
+           if (pass11 == "" && pass22 == ""){
+            document.getElementById("pass1").classList.add("is-danger")
+            document.getElementById("pass2").classList.add("is-danger")
+          }else if(pass11 != pass22){
+            document.getElementById("pass1").classList.remove("is-danger")
+            document.getElementById("pass2").classList.add("is-danger")
+            document.getElementById("showP2").innerHTML = "Password is not the same";
+          }else{
+            count++;
+            document.getElementById("pass1").classList.remove("is-danger")
+            document.getElementById("pass2").classList.remove("is-danger")
+            document.getElementById("showP2").innerHTML = "";
+          }
+          if (count==5){
+            document.getElementById("click").setAttribute("href","https://youtu.be/SC4xMk98Pdc?t=36");
+          }
+
+
+        }
+    </script>
+</body>
+</html>
